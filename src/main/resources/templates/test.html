@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<!-- 需要标签闭合 -->
+<title>Insert title here</title>
+</head>
+<body>
+	my first templates
+	<br />
+	<!-- <table width="100%" border="1" cellspacing="1" cellpadding="0">
+			<tr>
+				<td>姓名</td>
+				<td>信息</td>
+			</tr>
+			<tr th:each="user : ${userList}"> 循环遍历集合
+				<td th:text="${user.userName}"></td> 通过遍历后对象赋值的变量，获取值
+				<td th:text="${user.passWord}"></td>
+			</tr>
+		</table> -->
+	<br />
+
+	<!-- 直接用类名取值 -->
+	<!-- <span th:text="${user.userName}"></span>
+		<span th:text="${user.passWord}"></span> -->
+
+	<!-- <span th:text="${aaa}"></span>
+		<span th:text="${bbb}"></span> -->
+
+	<!-- <table>
+		<tr th:each="l : ${list}">
+			循环遍历集合
+			<td th:text="${l}"></td> 通过遍历后对象赋值的变量，获取值
+		</tr>
+	</table> -->
+	<span th:each="l : ${list}">
+		<span th:text="${l}"></span>
+	</span>
+</body>
+</html>
