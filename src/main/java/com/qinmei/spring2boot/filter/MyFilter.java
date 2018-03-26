@@ -19,14 +19,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class MyFilter implements Filter{
-
-	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
 	}
-
-	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
 		// 强转
@@ -35,11 +29,6 @@ public class MyFilter implements Filter{
 		System.out.println(request.getMethod());
 		arg2.doFilter(request, arg1);
 	}
-
-	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
 	}
-
 }

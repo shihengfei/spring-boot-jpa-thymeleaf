@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.qinmei.spring2boot.dao.UserDao;
 import com.qinmei.spring2boot.dao.UserRepository;
 import com.qinmei.spring2boot.domain.User;
+import com.qinmei.spring2boot.enums.ResultEnum;
+import com.qinmei.spring2boot.exception.UserException;
 
 /**
  * 用户业务
@@ -39,7 +41,11 @@ public class UserService {
 		Sort sort = new Sort(Direction.DESC, "id");
 		Pageable pageable = new PageRequest(page, size, sort);
 		
-		return repository.findAll(pageable);
+		Page<User> findAll = repository.findAll(pageable);
+		if(findAll!=null) {
+			throw new RuntimeException();
+		}
+		return findAll;
 	}
 	
 	/**
@@ -84,7 +90,14 @@ public class UserService {
 	 * @return
 	 */
 	public User getUserById(Integer id) {
-		return userDao.queryUserById(id);
+		User user = userDao.queryUserById(id);
+		String userName = user.getUserName();
+		System.out.println(userName);
+		// 业务中使用自定义异常处理业务逻辑
+		if(!userName.equals("shf")) {
+			 throw new UserException(ResultEnum.BGIRL);
+		}
+		return user;
 	}
 	
 	/**
