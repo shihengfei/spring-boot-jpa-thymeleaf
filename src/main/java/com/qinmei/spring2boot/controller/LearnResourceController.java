@@ -19,7 +19,7 @@ import com.qinmei.spring2boot.domain.User;
  * @version 1.0 ，2018年3月23日上午10:01:36
  */
 @Controller
-@RequestMapping("/learn")
+@RequestMapping("/lear")
 public class LearnResourceController {
    
 	@RequestMapping("/")
