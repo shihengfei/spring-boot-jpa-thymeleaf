@@ -47,11 +47,9 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	@Query("select u from User u where u.userName = ?1")
 	User findByEmailAddress(String userName);
 	
-	
 	// 多表查询
 	@Query(value="SELECT a.`name` aname,b.`name` bname FROM a INNER JOIN b ON"
 			+ " a.`B_id`=b.`id` WHERE a.`B_id`=? limit 0,1",nativeQuery = true) // nativeQuery = true表示使用原生 sql 查询，不能使用分页插件
 	List<A2B> findByA2B(Integer id);
-	
 	
 }

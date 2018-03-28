@@ -1,17 +1,21 @@
 package com.qinmei.spring2boot.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qinmei.spring2boot.dao.A2B;
 import com.qinmei.spring2boot.domain.User;
 import com.qinmei.spring2boot.service.UserService;
 
@@ -30,6 +34,24 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@PostMapping("/toLogin")
+	public String toLogin(HttpServletRequest request,String shf,HttpServletResponse response) throws IOException {
+		 //判断登陆是否成功
+        if(shf.equals("shf")) {
+            //登陆成功
+            //创建session对象
+            HttpSession session = request.getSession();
+            //把用户数据保存在session域对象中
+            session.setAttribute("shf", shf);
+            //跳转到用户主页
+            return "success";
+        } else {
+            //登陆失败，请求重定向
+            response.sendRedirect("login");
+            return shf;
+        }
+	}
 	
 	/**
 	 * 获取素有用户并分页
