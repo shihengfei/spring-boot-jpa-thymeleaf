@@ -25,11 +25,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency> -->
-
 		<!-- jpa 依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -59,8 +54,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-redis</artifactId> 
-			</dependency> -->
+		<!-- redis 模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 
 		<!-- 阿里 json解析框架 -->
 		<dependency>
@@ -82,7 +80,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- spring boot devtools 依赖包. -->
+		<!-- 热部署 spring boot devtools 依赖包. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
