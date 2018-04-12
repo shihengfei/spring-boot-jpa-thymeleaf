@@ -59,7 +59,7 @@ public class UploadController {
 	        
 	        Runtime.getRuntime().exec("chmod 777 -R " + uploadFilePath);
 	        
-	        mav.addObject("url", "http://47.98.137.92/"+sort+"/" +myFmt.format(new Date())+file.getOriginalFilename());
+	        mav.addObject("url", "http://ip/"+sort+"/" +myFmt.format(new Date())+file.getOriginalFilename());
 	        mav.setViewName("result");
 	        return mav;
 	    } catch (IOException e) {
