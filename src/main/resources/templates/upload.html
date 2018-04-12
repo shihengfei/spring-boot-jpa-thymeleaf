@@ -2,8 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <h1>Spring Boot file upload example</h1>
-<form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file" /><br/><br/>
+<form method="POST" action="http://47.98.137.92:8081/Myupload/upload" enctype="multipart/form-data">
+    <input type="file" name="file" /><br/>
+    目前只有image/html/SmallProjects文件夹<input type="text" name="sort"/>
+    <br/>
     <input type="submit" value="Submit" />
 </form>
 </body>
